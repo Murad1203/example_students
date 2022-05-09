@@ -1,0 +1,15 @@
+databaseChangeLog:
+    - changeSet:
+          id: create-table_bucket_students
+          author: mmy31
+          changes:
+              - createTable:
+                    tableName: buckets_students
+                    columns:
+                        - column:
+                              name: bucket_id
+                              type: bigint
+
+                        - column:
+                              name: stud_id
+                              type: bigint

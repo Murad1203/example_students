@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-db-buckets
+      author: mmy31
+      changes:
+        - createTable:
+            tableName: buckets
+            remarks: корзина
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+

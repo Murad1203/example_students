@@ -1,0 +1,44 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-db-users
+      author: mmy31
+      changes:
+        - createTable:
+            tableName: users
+            remarks: Пользователь
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: username
+                  type: varchar(40)
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: email
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+#              - column:
+#                  name: bucket_id
+#                  type: integer
+#                  constraints:
+#                    nullable: false
+
+#        - addForeignKeyConstraint:
+#            baseTableName: users
+#            baseColumnNames: bucket_id
+#            referencedTableName: buckets
+#            referencedColumnNames: id
+#            constraintName: users_bucket_fk

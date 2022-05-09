@@ -1,0 +1,29 @@
+databaseChangeLog:
+
+  - include:
+      file: db/changelog/changeset/create-db-students.yaml
+
+  - include:
+      file: db/changelog/changeset/create-db-roles.yaml
+
+  - include:
+      file: db/changelog/changeset/create-db-users.yaml
+
+  - include:
+      file: db/changelog/changeset/create-db-buckets.yaml
+
+
+  - include:
+      file: db/changelog/changeset/buckets_users_fk.yaml
+
+  - include:
+      file: db/changelog/changeset/users_buckets_fk.yaml
+
+  - include:
+      file: db/changelog/changeset/create-table-users_roles.yaml
+
+  - include:
+      file: db/changelog/changeset/create_table_bucket_students.yaml
+
+  - include:
+      file: db/changelog/changeset/buckets_students_fk.yaml

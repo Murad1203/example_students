@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: buckets_students_fk
+      author: mmy31
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: buckets_students
+            baseColumnNames: bucket_id
+            referencedTableName: buckets
+            referencedColumnNames: id
+            constraintName: buckets_students_fk
+
+        - addForeignKeyConstraint:
+            baseTableName: buckets_students
+            baseColumnNames: stud_id
+            referencedTableName: students
+            referencedColumnNames: id
+            constraintName:  students_buckets_fk

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<h2>Избранное</h2>
+
+<h3>Количество: <b th:text="${bucket.amountStudents}">..</b></h3>
+
+<br>
+<br>
+<br>
+
+<b>------------------------------------</b>
+
+<table border="1" align="center">
+    <tr>
+        <td>name</td>
+        <td>surname</td>
+        <td>Класс</td>
+        <td>Клуб</td>
+    </tr>
+    <tr th:each="detail : ${bucket.bucketDetails}">
+        <td th:text="${detail.studentId}"></td>
+        <td th:text="${detail.name}"></td>
+        <td th:text="${detail.surname}"></td>
+        <td th:text="${detail.studClass}"></td>
+        <td th:text="${detail.club}"></td>
+        <td><a th:href="@{'/bucket/' + ${detail.studentId}}">Remove</a></td>
+    </tr>
+</table>
+
+
+</body>
+</html>

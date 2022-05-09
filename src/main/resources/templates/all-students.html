@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <title>Document</title>
+
+
+<body>
+<div class="navbar">
+
+
+
+    <h1 >All Students</h1>
+    <a class="link-butt" sec:authorize="hasRole('ADMIN')" th:href="@{'/add-students'}"><button class="butt">Добавить студента</button></a>
+    <a class="link-butt" sec:authorize="isAuthenticated()" th:href="@{'/bucket'}"><button class="butt">Избранное</button></a>
+    <a sec:authorize="isAnonymous()" th:href="@{'/registration'}" class="link-butt"><button class="butt">Регистрация</button></a>
+    <a sec:authorize="isAnonymous()" th:href="@{'/login'}" class="link-butt"><button class="butt">Войти</button></a>
+
+
+</div>
+
+
+<br><br>
+
+<div class="bd" th:each="sd, i : ${students}">
+<div class="card">
+
+    <div class="photo">
+        <img th:src="@{/image/students.png}">
+    </div>
+
+    <div class="description">
+        <div class="block">
+            <h2 class="name_surname" th:text="${sd.name}">Name</h2>
+            <h2 class="name_surname" th:text="${sd.surname}">Surname</h2>
+        </div>
+
+            <div class="class">
+                <h2 class="name_surname">Класс: </h2>
+                <h2 class="name_surname" th:text="${sd.studClass}">class</h2>
+            </div>
+
+
+        <div class="class">
+
+            <h2 class="name_surname">Клуб:</h2>
+            <h2 class="name_surname" th:text="${sd.club}">Class</h2>
+        </div>
+
+        <div class="all-but">
+
+            <a class="but" th:href="@{'/update/' + ${sd.id}}">
+                <button>Изменить</button>
+            </a>
+
+            <a class="but" th:href="@{'/students/' + ${sd.id}}">
+                <button>Подробнее</button>
+            </a>
+
+<!--            <a th:href="@{''/{id}/bucket(id=${sd.id})}">ADD TO BUCKET</a>-->
+
+            <a th:href="@{'/' + ${sd.id} + '/bucket'}">ADD TO BUCKET</a>
+<!--            <button th:onclick=></button>-->
+
+        </div>
+
+
+
+    </div>
+</div>
+</div>
+
+</body>
+</html>

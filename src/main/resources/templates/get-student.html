@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" th:href="@{/css/own-stud.css}">
+
+    <title>Document</title>
+</head>
+<body>
+
+<h1 class="all-students" th:text="${student.id}">student</h1>
+
+
+
+
+    <div class="card">
+
+        <div class="photo">
+            <img th:src="@{/image/students.png}" >
+        </div>
+
+        <div class="description">
+            <div class="block">
+                <h2 class="name_surname" th:text="${student.name}">Name</h2>
+                <h2 class="name_surname" th:text="${student.surname}">Surname</h2>
+            </div>
+
+            <div class="class">
+                <h2 class="name_surname">Класс: </h2>
+                <h2 class="name_surname" th:text="${student.studClass}">class</h2>
+            </div>
+
+
+            <div class="class">
+
+                <h2 class="name_surname">Клуб:</h2>
+                <h2 class="name_surname" th:text="${student.club}">Class</h2>
+            </div>
+
+                <a th:href="@{'/delete/' + ${student.id}}">
+                    <button class="but-delete">Удалить</button>
+                </a>
+
+
+        </div>
+    </div>
+</body>
+</html>

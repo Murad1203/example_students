@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: users_buckets_fk
+      author: mmy31
+      changes:
+        - addColumn:
+            tableName: users
+            columns:
+              - column:
+                  name: bucket_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+
+        - addForeignKeyConstraint:
+            baseTableName: users
+            baseColumnNames: bucket_id
+            referencedTableName: buckets
+            referencedColumnNames: id
+            constraintName: users_buckets_fk
